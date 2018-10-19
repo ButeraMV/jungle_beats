@@ -64,4 +64,10 @@ class LinkedList
       words
     end
   end
+
+  def prepend(data)
+    current = @head
+    @head = Node.new(data)
+    @head.next_node = current
+  end
 end

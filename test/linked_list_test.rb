@@ -52,4 +52,26 @@ class LinkedListTest < Minitest::Test
 
     assert_equal 'doop deep', @list.to_string
   end
+
+  def test_node_can_be_prepended
+    @list.append('doop')
+    @list.prepend('deep')
+
+    assert_equal 'deep', @list.head.data
+  end
+
+  def test_to_string_works_after_prepend
+    @list.append('doop')
+    @list.prepend('deep')
+
+    assert_equal 'deep doop', @list.to_string
+  end
+
+  def test_node_can_be_inserted
+    @list.append('doop')
+    @list.append('deep')
+    @list.insert(1, 'woop')
+
+    assert_equal 'doop woop deep', @list.to_string
+  end
 end
